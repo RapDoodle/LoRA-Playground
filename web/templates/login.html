@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 ">
+  <link rel="stylesheet" href="/static/bootstrap-4.6.0/css/bootstrap.min.css">
+  <title>Login</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+
+<body data-gr-c-s-loaded="true">
+  <div class="container text-center" style="width: 400px; vertical-align: middle;">
+    <form class="{{ url_for('login.login') }}" method="post">
+      <!-- <img class="mb-4" src="/static/logo_horizontal.png" alt="" width=360> -->
+      <h1 class="h3 mb-3 font-weight-normal">LoRA Playground {{ get_str('LOGIN') }}</h1>
+      <br>
+
+      <!-- Error Message -->
+      <div class="alert alert-primary" role="alert" style="display: none;" id="flash-box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <span class="message">{{ message }}</span>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Input Fields -->
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="{{ get_str('USERNAME') }}" required=""
+        autofocus="">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="{{ get_str('PASSWORD') }}" required="">
+      <br><br>
+
+      <p>Available in:  <a href="?lang=en-US">English</a>  <a href="?lang=zh-CN">简体中文</a>  <a href="?lang=zh-HK">繁體中文</a></p>
+      <br>
+      <!-- Submit Button -->
+      <button class="btn btn-lg btn-primary btn-block" type="submit">{{ get_str('LOGIN_BTN') }}</button>
+      <p class="mt-5 mb-3 text-muted">© 2023 Copyleft</p>
+    </form>
+  </div>
+
+  <script src="/static/js/jquery-3.5.1.min.js"></script>
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/bootstrap-4.6.0/js/bootstrap.min.js"></script>
+
+  <!-- Script for the flash message -->
+  <script type="text/javascript">
+    if ($('.message').text().length > 0) {
+      $('#flash-box').show()
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "DEBUG": true,
+    "SECRET_KEY": "THIS_SHOULD_BE_CHANGED",
+    "RESTFUL_PREFIX": "/api",
+    "LIVESERVER_PORT": 8981,
+    "LIVESERVER_TIMEOUT": 10,
+    "TESTING": true,
+    "PRESERVE_CONTEXT_ON_EXCEPTION": false,
+    "LOG_PATH": "./error.log",
+    "LOG_FORMAT": "%(asctime)s %(levelname)s: %(message)s",
+    "SQLALCHEMY_DATABASE_URI": "sqlite:///test.db",
+    "SQLALCHEMY_TRACK_MODIFICATIONS": false,
+    "@JWT_AUTH_URL_RULE": "@RESTFUL_PREFIX::/auth",
+    "DEFAULT_LANGUAGE": "en-US",
+    "@PERMANENT_SESSION_LIFETIME": {
+        "type": "timedelta",
+        "args": {
+            "days": 31
+        }
+    },
+    "JWT_TOKEN_LOCATION": ["cookies"],
+    "JWT_COOKIE_CSRF_PROTECT": false,
+    "JWT_COOKIE_SECURE": false
+}

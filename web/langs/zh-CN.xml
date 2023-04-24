@@ -1,0 +1,125 @@
+<resources>
+    <string name="INTERNAL_ERROR">服务器内部错误。</string>
+    <string name="NOT_FOUND">找不到资源。</string>
+    <string name="INVALID_CREDENTIALS">用户名或密码错误。</string>
+    <string name="PERMISSION_DENIED">权限被拒绝，你没有该操作的权限。</string>
+    <string name="LOGIN">用户登录</string>
+    <string name="USERNAME">用户名</string>
+    <string name="PASSWORD">密码</string>
+    <string name="LOGIN_BTN">登录</string>
+    <string name="LOGIN_REQUIRED">需要用户登录。</string>
+    <string name="ACCESS_DENIED">您没有该操作的权限。</string>
+	<string name="INVALID_WEIGHT">权重是无效的。它应该是1到100之间的整数。</string>
+	<string name="NOT_INT">%(var_name)s的字段必须是一个整数。</string>
+	<string name="NOT_DECIMAL">%(var_name)s的字段必须是一个小数。</string>
+	<string name="INVALID_LENGTH">提供的字段%(field_name)s的长度是无效的。它期望一个最小长度为%(min_len)s，最大长度为%(max_len)s的字符串。</string>
+	<string name="INVALID_REF">对%(field_name)s的无效引用，关键是%(key_name)s。</string>
+    <string name="INVALID_MODIFICATION">该表格包含无效的数据，导致验证错误。</string>
+    <string name="NOT_FOUND_OBJECT">未知的%(object_name)s。</string>
+    <string name="INVALID_TOTAL_WEIGHT">所有的权重加起来必须达到100%%。</string>
+	<string name="INVALID_REF">对键为%(key)的%(field_name)s的引用无效。</string>
+    <string name="NO_RELATED_CILO">没有指定相关的CILO。请至少指定一个课程CILO。</string>
+    <string name="INVALID_EFFECTIVE_SINCE">有效年份不能早于或等于该课程的最新修订。该课程的最新修订是在%(year)s。</string>
+    <string name="CREATED">%(obj_name)s已被创建。</string>
+    <string name="INVALID_INDEX">无效的索引%(invalid_index)s，正确的索引应为%(correct_index)s。请在提交前检查指订单。</string>
+    <string name="COURSE_UPDATED">课程%(course_name)s已成功更新。</string>
+    <string name="CILO_NUM_MISMATCH">相对最新修订版，CILO的数量并不匹配。</string>
+
+    <!--base-->
+    <string name="COURSE">课程</string>
+    <string name="ACOURSE">课程</string>
+    <string name="COURSES">课程</string>
+    <string name="PERFORMANCE_REPORT">成绩报告</string>
+    <string name="OUTCOME_DEPENDENCY">依赖关系</string>
+    <string name="MENU">菜单</string>
+    <string name="LOGOUT">登出</string>
+    <string name="MESSAGE">信息</string>
+    <string name="CONFIRM">确认</string>
+
+    <!--courses-->
+    <string name="COURSE_DESIGNER_HOME_PAGE">课程设计者主页</string>
+    <string name="LECTURER_HOME_PAGE">讲师主页</string>
+    <string name="STUDENT_HOME_PAGE">学生主页</string>
+    <string name="ADD_NEW_COURSE">添加新课程</string>    
+    <string name="COURSE_NAME">课程名称</string> 
+    <string name="ACTIONS">操作</string> 
+    <string name="EDIT_CILOS">编辑CILOs</string> 
+    <string name="MODIFY_ASSESSMENT_METHOD">修改评估方法</string>
+    <string name="NEW_COURSE">新课程</string>
+    <string name="COURSE_TITLE">课程名称</string>
+    <string name="COURSE_CODE">课程代码</string>
+    <string name="COURSE_TYPE">课程类型</string>    
+    <string name="PRE-REQUISITES">前置需求</string>
+    <string name="CILOS">CILOs</string>
+    <string name="IMPORT">导入</string>
+    <string name="DESCRIPTION">描述</string>
+    <string name="DEPENDENCIES">依赖关系</string>
+    <string name="ASSESSMENT_METHODS">评估方法</string>
+    <string name="ASSESSMENT_METHOD">评估方法</string>
+    <string name="ASSESSMENT">评估</string>
+    <string name="NAME">名称</string>
+    <string name="RELATED_CILOS">相关CILOs</string>
+    <string name="PRECENTAGE">百分比</string>
+    <string name="CANCEL">取消</string>
+    <string name="CILO_DEPENDENCIES">CILO依赖关系</string>
+    <string name="TYPE">类型</string>
+    <string name="COURSE">课程</string>
+    <string name="CILO">CILO</string>
+    <string name="ACTION">操作</string>
+    <string name="ADDED_CILOS">已添加CILOs</string>
+    <string name="UPLOAD">上传</string>
+    <string name="CHOOSE_FILE">选择文件</string>
+    <string name="COURSE_DESIGNER">课程设计者</string>
+    <string name="LECTURER">讲师</string>
+    <string name="STUDENT">学生</string>
+    <string name="YEAR">学年</string>
+    <string name="TERM">学期</string>
+    <string name="PROGRAM">课程</string>
+    <string name="CILOS_NAME">CILOs名称</string>
+    <string name="EDIT">编辑</string>
+    <string name="EFFECTIVE_SINCE">生效日期</string>
+    <string name="DEFINE">定义</string>
+    <string name="NO_CORRESPOMDING">未找到相关课程。</string>
+    <string name="COURSE_MODIFIED_SUCCESSFULLY">编辑课程成功。</string>
+    <string name="NO_CHOOSE_FILE_ERROR">请选择一个文件。</string>
+    <string name="FILE_TYPE_ERROR">请选择 .xls 或者 .xlsx 文件。</string>
+    <string name="FILE_SIZE_ERROR">文件大小不能超过512KB。</string>
+    <string name="FILE_CONTENT_ERROR">请检查文件。</string>
+    <string name="COURSE_ADD_SUCCESSFULLY">添加课程成功。</string>
+    <string name="SUCCESS">成功</string>
+    <!--Search-->
+    <string name="SEARCH">搜索</string>
+    <string name="SEARCH_TYPE_EMPTY">搜索类型不能为空。</string>
+    <string name="SEARCH_KEYWORD_EMPTY">未提供关键词。</string>
+    <string name="INVALID_SEARCH_TYPE">无效的搜索类型。</string>
+
+
+    <!--Search Results-->
+    <string name="SEARCH_RESULTS">查询结果</string>
+
+    <!--Course Information-->
+    <string name="COURSES_INFO">信息</string>
+    <string name="BASICINFO">课程基本信息</string>
+    <string name="PRECOURSES">前置课程</string>
+    <string name="POSTCOURSES">依赖于本课程的课程</string>
+    <string name="ANALYSIS">分析结果</string>
+    <string name="RELATED_CILOS">相关的CILOs</string>
+    <string name="PERCENTAGE">百分比</string>
+    <string name="COURSE_NOT_FOUND">未找到课程。</string>
+    <string name="WEIGHTING">加权</string>
+    <string name="CILOS_ADDRESSED">有待处理的CILOs</string>
+    <string name="NO_REPORT">暂无报告</string>
+    
+    <!--Performance-->
+    <string name="PERFORMANCE">成绩报告</string>
+    <string name="INVALID_REPORT">无效的报告。</string>
+    <string name="CILO_DESCRIPTION">CILO描述</string>
+    <string name="INVALID_INDEX">无效的索引。</string>
+    <string name="INVALID_INDEX_OF">%(index)s的无效索引。</string>
+
+    <!--Dependency-->
+    <string name="DEPENDENCY">依赖关系</string>
+
+    <string name="INVALID_EXCEL">所提供的文件不是有效的Excel文件。</string>
+
+</resources>

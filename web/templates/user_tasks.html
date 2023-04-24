@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+{% block inner_content %}
+{% endblock %}
+<div class="row">
+  <div class="col" id="location">
+    <span>
+      <p style="font-weight:bold">My Tasks</p>
+    </span>
+  </div>
+</div>
+<button type="button" class="btn btn-light" data-toggle="modal" data-target=".add-course">
+  <i class="fa fa-plus"></i>
+</button>
+<span>New task</span>
+<br><br>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Task Type</th>
+      <th>Time Created</th>
+      <th>Task Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in data['tasks'] %}
+    <tr>
+      <td><a style="color:#7987cb;" href="{{ url_for('user_task_info.info', task_id=task.id) }}">{{task.task_title}}</a></td>
+      <td>{{task.get_task_type_string()}}</td>
+      <td>{{task.get_time_created_local_time()}}</td>
+      <td>{{task.get_task_status_string()}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-12">
+    <nav aria-label="pagination">
+      <ul class="pagination justify-content-center">
+        {% for page in data['pages'] %}
+        {% if page == 'None' %}
+        <li class="page-item disabled">
+          <span class="page-link">
+            ...
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        {% elif page == data['current_page'] %}
+        <li class="page-item active">
+          <span class="page-link">
+            {{ page }}
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{ url_for('user_tasks.tasks', page=page) }}">{{ page }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg add-course" tabindex="-1" role="dialog" aria-labelledby="add-course"
+  aria-hidden="true" style="overflow:auto">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="myLargeModalLabel">New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row align-items-start" style="margin-bottom: 1%; margin-left: 1%; margin-right: 1%">
+          <div class="col-12">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-01" role="tab"
+                  aria-controls="nav-01" aria-selected="true" onclick="taskType=1">Train</a>
+                <a class="nav-item nav-link" id="nav-02-tab" data-toggle="tab" href="#nav-02" role="tab"
+                  aria-controls="nav-02" aria-selected="false" onclick="taskType=2">Test</a>
+              </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <!-- Option 1 -->
+              <div class="tab-pane fade show active" id="nav-01" role="tabpanel" aria-labelledby="nav-01-tab">
+                <div class="row no-gutters" style="margin-top: 5%;">
+                  <div class="col-sm-10" style="margin-left: 6.5%; ">
+                    <h5 class="text-center">Fine-tune diffusion models with LoRA</h5>
+                  </div>
+                  <div class="row" style="margin: 2.5%; margin-bottom: 0%;">
+                    <!-- Title -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Model name</label>
+                      <input type="text" class="form-control" id="train_model_name" name="train_model_name" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="">
+                    </div>
+                    <!-- Resolution -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Resolution</label>
+                      <select class="form-control" id="train_resolution" name="train_resolution">
+                        <option value="512">512</option>
+                        <option value="768">768</option>
+                      </select>
+                    </div>
+                    <!-- Number of training steps -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Number of training steps</label>
+                      <input type="int" class="form-control" id="train_num_steps" name="train_num_steps" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="1000">
+                    </div>
+                    <!-- Learning rate -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Learning rate</label>
+                      <input type="text" class="form-control" id="train_learning_rate" name="train_learning_rate" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="0.0001">
+                    </div>
+                    <!-- Number of gradient accumulation -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Number of gradient accumulation</label>
+                      <input type="int" class="form-control" id="train_num_gradient_accumulation" name="train_num_gradient_accumulation" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="1000">
+                    </div>
+                    <!-- Random seed -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Seed</label>
+                      <input type="int" class="form-control" id="train_seed" name="train_seed" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="2">
+                    </div>
+                    <!-- Images -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Image</label>
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="train_images" name="train_images" multiple onchange="encodeImageFilesAsURL(this)">
+                          <label class="custom-file-label" for="lm_image">Choose images</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Option 2 -->
+              <div class="tab-pane fade" id="nav-02" role="tabpanel" aria-labelledby="nav-02-tab">
+                <div class="row no-gutters" style="margin-top: 5%;">
+                  <div class="col-sm-10" style="margin-left: 6.5%; ">
+                    <h5 class="text-center">Test the fine-tuned diffusion models</h5>
+                  </div>
+                  <div class="row" style="margin: 2.5%; margin-bottom: 0%;">
+                    <!-- Title -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Model name</label>
+                      <select class="form-control" id="test_model_name" name="test_model_name">
+                        {% for user_models in data['user_models'] %}
+                          <option value="{{ 'private/' + user_models.model_name }}">{{ 'private/' + user_models.model_name }}</option>
+                        {% endfor %}
+                        {% for public_model in data['public_models'] %}
+                          <option value="{{ 'public/' + public_model.model_name }}">{{ 'public/' + public_model.model_name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <!-- Prompt -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Prompt</label>
+                      <input type="text" class="form-control" id="test_prompt" name="test_prompt" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="0.0001">
+                    </div>
+                    <!-- Random seed -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Seed</label>
+                      <input type="int" class="form-control" id="test_seed" name="test_seed" placeholder=""
+                        aria-label="" aria-describedby="basic-addon1" value="2">
+                    </div>
+                    <!-- Image -->
+                    <div class="col-md-6 col-sm-12">
+                      <label>Image</label>
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="test_image" name="test_image" onchange="encodeImageFileAsURL(this)">
+                          <label class="custom-file-label" for="lm_image">Choose image</label>
+                      </div>
+                    </div>
+                    <!-- LoRA Alpha -->
+                    <div class="col-md-6 col-sm-12">
+                      <div class="label-wrapper" style="display: flex; justify-content: space-between;">
+                        <label>LoRA Alpha</label>
+                        <output>1</output>
+                      </div>
+                      <input type="range" class="form-control-range" id="test_lora_alpha" name="test_lora_alpha" min="0" max="2" step="0.01" value="1"
+                        oninput="this.previousElementSibling.children[1].value = this.value">
+                      <output></output>
+                    </div>
+                    <!-- Number of steps -->
+                    <div class="col-md-6 col-sm-12">
+                      <div class="label-wrapper" style="display: flex; justify-content: space-between;">
+                        <label>Number of steps</label>
+                        <output>25</output>
+                      </div>
+                      <input type="range" class="form-control-range" id="test_num_steps" name="test_num_steps" min="0" max="100" step="1" value="25" 
+                        oninput="this.previousElementSibling.children[1].value = this.value">
+                    </div>
+                    <!-- CFG Scale -->
+                    <div class="col-md-6 col-sm-12">
+                      <div class="label-wrapper" style="display: flex; justify-content: space-between;">
+                        <label>CFG Scale</label>
+                        <output>7.5</output>
+                      </div>
+                      <input type="range" class="form-control-range" id="test_cfg_scale" name="test_cfg_scale" min="0" max="50" step="0.1" value="7.5"
+                        oninput="this.previousElementSibling.children[1].value = this.value">
+                      <output></output>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- button area -->
+        <div class="row" style="margin: 2.5%;">
+          <div class="col" style="text-align: right;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              {{ get_str('CANCEL') }}
+            </button>
+            <button type="button" class="btn btn-primary" style="margin-left: 5px;" onclick="submitTask()">
+              {{ get_str('CONFIRM') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  let taskType = 1
+  let imageBase64 = null
+  let imageBase64Array = [];
+
+  const encodeImageFileAsURL = (element) => {
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      imageBase64 = reader.result
+    }
+    reader.readAsDataURL(file);
+  }
+
+  const encodeImageFilesAsURL = (element) => {
+    const files = element.files;
+    imageBase64Array = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+        imageBase64Array.push(reader.result);
+      }
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+  const submitTask = () => {
+    let currentJson = {}
+    currentJson['task_type'] = taskType
+    currentJson['task_parameters'] = {}
+    if (taskType === 1) {
+      // currentJson['task_title'] = $('#lv_task_title').val()
+      currentJson['task_parameters']['model_name'] = $('#train_model_name').val()
+      currentJson['task_parameters']['resolution'] = $('#train_resolution').val()
+      currentJson['task_parameters']['num_steps'] = Number($('#train_num_steps').val())
+      currentJson['task_parameters']['learning_rate'] = $('#train_learning_rate').val()
+      currentJson['task_parameters']['num_gradient_accumulation'] = $('#train_num_gradient_accumulation').val()
+      currentJson['task_parameters']['seed'] = $('#train_seed').val()
+      currentJson['images'] = imageBase64Array
+
+    } else if (taskType == 2) {
+      // currentJson['task_title'] = $('#lm_task_title').val()
+      currentJson['task_parameters']['model_name'] = $('#test_model_name').val()
+      currentJson['task_parameters']['prompt'] = $('#test_prompt').val()
+      currentJson['task_parameters']['seed'] = $('#test_seed').val()
+      currentJson['task_parameters']['lora_alpha'] = $('#test_lora_alpha').val()
+      currentJson['task_parameters']['num_steps'] = $('#test_num_steps').val()
+      currentJson['task_parameters']['cfg_scale'] = $('#test_cfg_scale').val()
+
+      if (imageBase64 !== null) {
+        currentJson['image'] = imageBase64
+      }
+    }
+    
+    console.log(currentJson)
+    $.ajax({
+      type: "POST",
+      url: "/api/v1/tasks",
+      async: false,
+      data: JSON.stringify(currentJson),
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
+      success: (data) => {
+        console.log(data)
+        $('#messageModal').find(".modal-title").text('Success')
+        $('#messageModal').find(".modal-body").html('<p>' + data.message + '</p>')
+        $('#messageModal').modal('show')
+        $("#dialog-comfirm-button").on("click", function () {
+          window.location.reload()
+        })
+      },
+      error: (jqXHR) => {
+        $('#messageModal').find(".modal-title").text("error")
+        $('#messageModal').find(".modal-body").html('<p>' + jqXHR.responseJSON.error + '</p>')
+        $('#messageModal').modal('show')
+      }
+    })
+  }
+</script>
+{% endblock %}

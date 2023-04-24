@@ -1,0 +1,132 @@
+<resources>
+    <string name="INTERNAL_ERROR">Server internal error.</string>
+    <string name="NOT_FOUND">Not found.</string>
+    <string name="INVALID_CREDENTIALS">Invalid username or password.</string>
+    <string name="PERMISSION_DENIED">Permission denied. You do not have permission for the operation.</string>
+    <string name="LOGIN">Login</string>
+    <string name="USERNAME">Username</string>
+    <string name="PASSWORD">Password</string>
+    <string name="LOGIN_BTN">Log in</string>
+    <string name="LOGIN_REQUIRED">Login is required.</string>
+    <string name="ACCESS_DENIED">You do not have permission for the operation.</string>
+	<string name="INVALID_WEIGHT">The weight is not valid. It should be an integer between 1 and 100.</string>
+	<string name="NOT_INT">The field for %(var_name)s must be an integer.</string>
+	<string name="NOT_DECIMAL">The field for %(var_name)s must be a decimal.</string>
+	<string name="INVALID_LENGTH">The field %(field_name)s was provided with an invalid length. It expects a string that has a minimum length of %(min_len)s and a maximum length of %(max_len)s.</string>
+	<string name="INVALID_REF">Invalid reference to %(field_name)s with key %(key_name)s.</string>
+    <string name="INVALID_MODIFICATION">The form contains invalid data that caused a validation error.</string>
+    <string name="NOT_FOUND_OBJECT">Unkown %(object_name)s.</string>
+    <string name="INVALID_TOTAL_WEIGHT">All the weights must add up to 100%%.</string>
+	<string name="INVALID_REF">Invalid reference to %(field_name)s with key %(key)s.</string>
+    <string name="NO_RELATED_CILO">No related CILO were specified. Please specify at least one course CILO.</string>
+    <string name="INVALID_EFFECTIVE_SINCE">The effective year cannot be earlier or equal to the course's latest revision. The latest revision of the course was in %(year)s.</string>
+    <string name="CREATED">The %(obj_name)s has been created.</string>
+    <string name="INVALID_INDEX">Invalid index of %(invalid_index)s while it should be %(correct_index)s. Please check the order before submission.</string>
+    <string name="COURSE_UPDATED">The course %(course_name)s was updated successfully.</string>
+    <string name="CILO_NUM_MISMATCH">The number of CILOs compared to the latest revision does not match.</string>
+
+    <!--base-->
+    <string name="COURSE">Course</string>
+    <string name="ACOURSE">course</string>
+    <string name="COURSES">Courses</string>
+    <string name="PERFORMANCE_REPORT">Performance Report</string>
+    <string name="OUTCOME_DEPENDENCY">Outcome dependency</string>
+    <string name="MENU">Menu</string>
+    <string name="LOGOUT">Logout</string>
+    <string name="MESSAGE">Message</string>
+    <string name="CONFIRM">Confirm</string>
+
+    <!--courses-->
+    <string name="COURSE_DESIGNER_HOME_PAGE">Course Designer Home Page</string>
+    <string name="LECTURER_HOME_PAGE">Lecturer Home Page</string>
+    <string name="STUDENT_HOME_PAGE">Student Home Page</string>
+    <string name="ADD_NEW_COURSE">Add new course</string>    
+    <string name="COURSE_NAME">Course Name</string> 
+    <string name="ACTIONS">Actions</string> 
+    <string name="EDIT_CILOS">Edit CILOs</string> 
+    <string name="MODIFY_ASSESSMENT_METHOD">Modify Assessment Method</string>
+    <string name="NEW_COURSE">New Course</string>
+    <string name="COURSE_TITLE">Course title</string>
+    <string name="COURSE_CODE">Course code</string>
+    <string name="COURSE_TYPE">Course type</string>    
+    <string name="PRE-REQUISITES">Pre-requisites</string>
+    <string name="CILOS">CILOs</string>
+    <string name="IMPORT">Import</string>
+    <string name="DESCRIPTION">Description</string>
+    <string name="DEPENDENCIES">Dependencies</string>
+    <string name="ASSESSMENT_METHODS">Assessment methods</string>
+    <string name="ASSESSMENT_METHOD">Assessment method</string>
+    <string name="ASSESSMENT">Assessment</string>
+    <string name="NAME">Name</string>
+    <string name="RELATED_CILOS">Related CILOs</string>
+    <string name="PRECENTAGE">Percentage</string>
+    <string name="CANCEL">Cancel</string>
+    <string name="CILO_DEPENDENCIES">CILO Dependencies</string>
+    <string name="TYPE">Type</string>
+    <string name="COURSE">Course</string>
+    <string name="CILO">CILO</string>
+    <string name="ACTION">Action</string>
+    <string name="ADDED_CILOS">Added CILOs</string>
+    <string name="UPLOAD">Upload</string>
+    <string name="CHOOSE_FILE">Choose file</string>
+    <string name="COURSE_DESIGNER">Course Designer</string>
+    <string name="LECTURER">Lecturer</string>
+    <string name="STUDENT">Student</string>
+    <string name="YEAR">Year</string>
+    <string name="TERM">Term</string>
+    <string name="PROGRAM">Program</string>
+    <string name="CILOS_NAME">CILOs name</string>
+    <string name="EDIT">Edit</string>
+    <string name="EFFECTIVE_SINCE">Effective since</string>
+    <string name="DEFINE">Define</string>
+
+    <string name="NO_CORRESPOMDING">There is no corresponding result.</string>
+    <string name="COURSE_MODIFIED_SUCCESSFULLY">Course modified successfully.</string>
+    <string name="NO_CHOOSE_FILE_ERROR">Please choose a file.</string>
+    <string name="FILE_TYPE_ERROR">Please choose .xls or .xlsx file.</string>
+    <string name="FILE_SIZE_ERROR">File size must be smaller than 512KB.</string>
+    <string name="FILE_CONTENT_ERROR">Please check the file.</string>
+    <string name="COURSE_ADD_SUCCESSFULLY">Course added successfully.</string>Success
+    <string name="SUCCESS">Success</string>
+    <string name="ERROR">Error</string>
+
+
+    <!--Search-->
+    <string name="SEARCH">Search</string>
+    <string name="SEARCH_TYPE_EMPTY">The search type cannot be empty.</string>
+    <string name="SEARCH_KEYWORD_EMPTY">Keyword not provided.</string>
+    <string name="INVALID_SEARCH_TYPE">Invalid search type.</string>
+    <string name="KEYWORDS">Keywords</string>
+
+
+    <!--Search Results-->
+    <string name="SEARCH_RESULTS">Search Results</string>
+
+    <!--Course Information-->
+    <string name="COURSES_INFO">Task Information</string>
+    <string name="BASICINFO">Basic Information</string>
+    <string name="PRECOURSES">Prerequisites Courses</string>
+    <string name="POSTCOURSES">Courses that dependend on this course</string>
+    <string name="ANALYSIS">Analysis Results</string>
+    <string name="RELATED_CILOS">Related CILOs</string>
+    <string name="PERCENTAGE">Percentage</string>
+    <string name="COURSE_NOT_FOUND">Course not found.</string>
+    <string name="WEIGHTING">Weighting</string>
+    <string name="CILOS_ADDRESSED">CILOs to be addressed</string>
+    <string name="NO_REPORT">No report available</string>
+    
+    <!--Performance-->
+    <string name="PERFORMANCE">Performance Report</string>
+    <string name="INVALID_REPORT">Invalid report.</string>
+    <string name="CILO_DESCRIPTION">CILO Description</string>
+    <string name="INVALID_INDEX">Invalid index.</string>
+    <string name="INVALID_INDEX_OF">Invalid index of %(index)s.</string>
+
+    <!--Dependency-->
+    <string name="DEPENDENCY">Outcome Dependency</string>
+
+    <string name="INVALID_EXCEL">The file provided is not an valid Excel file.</string>
+
+    <string name="MY_TASKS">My Tasks</string>
+
+</resources>

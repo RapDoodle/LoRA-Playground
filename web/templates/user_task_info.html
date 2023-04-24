@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% macro tag_title() -%}
+
+{%- endmacro %}
+{% block title %}{{data['task'].task_title}}{% endblock%}
+
+{% block content %}
+
+{% macro tab_title() -%}
+{{ get_str('COURSES_INFO') }}
+{%- endmacro %}
+
+{% block custom_style %}
+<style>
+  .dropdown-menu::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+<div class="row">
+  <div class="col" id="location">
+    <span>
+      <p style="font-weight:bold">{{ tab_title() }}</p>
+    </span>
+  </div>
+</div>
+<!--course info-->
+<div class="row text-center" style="margin-left: 5%; margin-right: 10%; margin-left: 10%">
+  <h5 class="col">{{ get_str('BASICINFO') }}</h5>
+</div>
+<br>
+<div class="row align-items-start" style="margin-bottom: 1%; margin-left: 5%">
+  <div class="col-md-6 col-sm-12">
+    <p>Task Title: {{data['task'].task_title}}</p>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <p>Time Created: {{data['task'].get_time_created_local_time()}}</p>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <p>Task Type: {{data['task'].get_task_type_string()}}</p>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <p>Task Status: {{data['task'].get_task_status_string()}}</p>
+  </div>
+  {% for key, value in data['task'].get_task_parameters(display_mode=True).items() %}
+  <div class="col-md-6 col-sm-12">
+    <p>{{ key }}: {{ value }}</p>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+<div class="row align-items-start" style="margin-bottom: 1%; margin-left: 5%">
+  <div class="col-11">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-icl" role="tab"
+          aria-controls="nav-icl" aria-selected="true">Result</a>
+        <a class="nav-item nav-link" id="nav-ipi-tab" data-toggle="tab" href="#nav-ipi" role="tab"
+          aria-controls="nav-ipi" aria-selected="false">Log</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-icl" role="tabpanel" aria-labelledby="nav-icl-tab">
+        <div class="row no-gutters" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+          <div class="col-sm-10" style="margin-left: 12%">
+            <h5 class="text-center">Results</h5>
+          </div>
+          <div style="padding-right: 15px;" class="col-sm-6">
+            <br>
+            {% if data['task'].input_file %}
+            <img style="width: 100%;"
+              src="{{ url_for('static', filename='contents/uploads/'+data['task'].input_file) }}">
+            {% else %}
+            <div class="row no-gutters" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+              <div class="col-sm-9" style="margin-left: 12%">
+                <p class="text-center">The task has no input</p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div style="padding-left: 15px;" class="col-sm-6">
+            <br>
+            {% if data['task'].output_file %}
+            <img style="width: 100%;" src="{{ url_for('static', filename=data['task'].output_file) }}">
+            {% else %}
+            <div class="row no-gutters" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+              <div class="col-sm-9" style="margin-left: 12%">
+                <p class="text-center">The task output is not ready yet.</p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-ipi" role="tabpanel" aria-labelledby="nav-ipi-tab">
+        <div class="row no-gutters" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+          <div class="col-sm-10" style="margin-left: 12%">
+            <h5 class="text-center">Operation Log</h5>
+          </div>
+          <div class="col-sm-10" style="margin-left: 6%">
+            <br>
+            {% for log in data['task'].get_task_log() %}
+            <p>{{log.get_time_created_local_time()}}: {{log.get_message()}}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

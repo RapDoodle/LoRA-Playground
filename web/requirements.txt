@@ -1,0 +1,14 @@
+flask
+flask_restful
+flask_sqlalchemy
+flask_language
+flask_jwt_extended
+bcrypt
+tqdm
+ftfy
+regex
+gdown
+matplotlib
+scipy
+imageio
+opencv-python

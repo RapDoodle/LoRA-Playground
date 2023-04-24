@@ -1,0 +1,23 @@
+{
+    "DEBUG": false,
+    "SECRET_KEY": "3h4touoefseo48uyog3ajfo3hu4ietyo3fhi",
+    "RESTFUL_PREFIX": "/api",
+    "HOST": "0.0.0.0",
+    "PORT": 80,
+    "LOG_PATH": "./error.log",
+    "LOG_FORMAT": "%(asctime)s %(levelname)s: %(message)s",
+    "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://root@localhost/do?charset=utf8mb4",
+    "SQLALCHEMY_TRACK_MODIFICATIONS": false,
+    "@JWT_AUTH_URL_RULE": "@RESTFUL_PREFIX::/auth",
+    "DEFAULT_LANGUAGE": "en-US",
+    "@PERMANENT_SESSION_LIFETIME": {
+        "type": "timedelta",
+        "args": {
+            "days": 31
+        }
+    },
+    "ENABLE_HTTPS": false,
+    "HTTPS_CERT_PATH": "./security/cert.pem",
+    "HTTPS_PRIVATE_KEY_PATH": "./security/privkey.pem",
+    "SQLALCHEMY_ECHO": false
+}

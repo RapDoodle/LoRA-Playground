@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+{% block inner_content %}
+{% endblock %}
+<div class="row">
+  <div class="col" id="location">
+    <span>
+      <p style="font-weight:bold">My Models</p>
+    </span>
+  </div>
+</div>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Model name</th>
+      <th>Time created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for model in data['models'] %}
+    <tr>
+      <td><a style="color:#7987cb;">{{model.model_name}}</a></td>
+      <td>{{model.get_time_created_local_time()}}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-sm dropdown-toggle btn-sm" type="button" id="maangeButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-gear"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-toggle="modal" data-target="#deleteModal"
+              data-model-id="{{ model.id }}" data-model-name="{{ model.model_name }}"
+              data-delete-url="{{ url_for('user_models.delete_model', model_id=model.id) }}">Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-12">
+    <nav aria-label="pagination">
+      <ul class="pagination justify-content-center">
+        {% for page in data['pages'] %}
+        {% if page == 'None' %}
+        <li class="page-item disabled">
+          <span class="page-link">
+            ...
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        {% elif page == data['current_page'] %}
+        <li class="page-item active">
+          <span class="page-link">
+            {{ page }}
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{ url_for('user_tasks.tasks', page=page) }}">{{ page }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete model</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="delete-modal-text"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $('#deleteModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    
+    var modal = $(this)
+    modal.find('#delete-modal-text').text('Are you sure to delete model: ' + button.data('model-name') + '?')
+    modal.find('#confirmDeleteBtn').on('click', () => {
+      window.location.href = button.data('delete-url')
+    })
+  })
+</script>
+{% endblock %}

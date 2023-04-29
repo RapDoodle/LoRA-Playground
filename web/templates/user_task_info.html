@@ -69,9 +69,9 @@
           </div>
           <div style="padding-right: 15px;" class="col-sm-6">
             <br>
-            {% if data['task'].input_file %}
+            {% if data['task'].input_path %}
             <img style="width: 100%;"
-              src="{{ url_for('static', filename='contents/uploads/'+data['task'].input_file) }}">
+              src="{{ url_for('user_images.get_input_images', task_id=data['task'].id, obj_id=1) }}">
             {% else %}
             <div class="row no-gutters" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
               <div class="col-sm-9" style="margin-left: 12%">

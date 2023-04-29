@@ -15,5 +15,6 @@ IMPORT_BLUEPRINTS = [
     'dashboard',
     'user_tasks',
     'user_task_info',
-    'user_models'
+    'user_models',
+    'user_images'
 ]

@@ -100,7 +100,7 @@ class TaskQueue(Resource):
             else:
                 return {
                     'task': None
-                }, 404
+                }, 200
         elif request_args['action'] == 'fetch_model':
             access_key = request_args.get('access_key', None)
             if access_key is None:

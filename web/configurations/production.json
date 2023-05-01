@@ -1,6 +1,5 @@
 {
     "DEBUG": false,
-    "SECRET_KEY": "3h4touoefseo48uyog3ajfo3hu4ietyo3fhi",
     "RESTFUL_PREFIX": "/api",
     "HOST": "0.0.0.0",
     "PORT": 80,

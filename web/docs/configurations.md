@@ -18,7 +18,6 @@ The configuration module provides an easy way to manage all the profiles used th
     ```json
     {
         "DEBUG": true,
-        "SECRET_KEY": "THIS SHOULD BE CHANGED!!!",
         "ENABLE_SIMPLE_HTTP_SERVER": false,
         "RESTFUL_PREFIX": "/api",
         "HOST": "127.0.0.1",

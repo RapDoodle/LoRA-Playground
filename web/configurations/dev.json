@@ -1,6 +1,6 @@
 {
     "DEBUG": true,
-    "SECRET_KEY": "THIS_SHOULD_BE_CHANGED",
+    "SECRETS_PATH": "./secrets",
     "RESTFUL_PREFIX": "/api",
     "HOST": "0.0.0.0",
     "PORT": 80,
